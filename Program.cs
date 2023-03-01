@@ -9,9 +9,16 @@
             {
                 Console.Write($"{question}");
                 string answer = Console.ReadLine().ToLower();
-                int parsedAnswer = int.Parse(answer);
+                bool isNumber = int.TryParse(answer, out int parsedAnswer);
+                while (isNumber != true)
+                    {
+                        Console.Write($"{question}");
+                        answer = Console.ReadLine().ToLower();
+                        isNumber = int.TryParse(answer, out parsedAnswer);
+                    }
 
                 return parsedAnswer;
+                  
 
                 // while (answer != "y" && answer != "n")
                 // {
