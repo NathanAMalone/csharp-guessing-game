@@ -2,12 +2,12 @@
   
          Console.WriteLine("Guess the secret number!");
         
-        int NumberGuess = AsksForGuess("What is the secret number? "); 
+        string NumberGuess = AsksForGuess("What is the secret number? "); 
         Console.WriteLine(NumberGuess);
-        
-        int AsksForGuess(string question)
+        string AsksForGuess(string question)
             {
                 Console.Write($"{question}");
+                int secretNumber = 42;
                 string answer = Console.ReadLine().ToLower();
                 bool isNumber = int.TryParse(answer, out int parsedAnswer);
                 while (isNumber != true)
@@ -17,7 +17,13 @@
                         isNumber = int.TryParse(answer, out parsedAnswer);
                     }
 
-                return parsedAnswer;
+                if (parsedAnswer == secretNumber)
+                {
+                    return "42 is the secret number!";
+                }
+                else {
+                    return "That is the very wrong number!";
+                }
                   
 
                 // while (answer != "y" && answer != "n")
