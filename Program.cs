@@ -8,7 +8,8 @@
             {
                 
                     Console.Write($"{question} Guess (1) of (4): ");
-                    int secretNumber = 42;
+                    Random randomNumber = new Random();
+                    int secretNumber = randomNumber.Next(1, 100);
                     string answer = Console.ReadLine().ToLower();
                     bool isNumber = int.TryParse(answer, out int parsedAnswer);
                 
@@ -33,9 +34,9 @@
                     }
                     if (parsedAnswer == secretNumber)
                     {
-                        return "42 is the secret number!";
+                        return $"{secretNumber} is the secret number!";
                     }
                     else {
-                        return "That is the very wrong number, and you have no more guesses!";
+                        return $"That is the very wrong number, and you have no more guesses!\r\nThe secret number was {secretNumber}!!!";
                     }
             }
