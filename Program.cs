@@ -25,10 +25,19 @@
                         else {
                         if (isNumber == true && parsedAnswer != secretNumber)
                             {
-                                Console.WriteLine("That is the very wrong number!");
-                                Console.Write($"{question} Guess ({i + 2}) of (4): ");
-                                answer = Console.ReadLine().ToLower();
-                                isNumber = int.TryParse(answer, out parsedAnswer);
+                                if (parsedAnswer > secretNumber)
+                                    {
+                                        Console.WriteLine("Wrong! That number is too high!");
+                                        Console.Write($"{question} Guess ({i + 2}) of (4): ");
+                                        answer = Console.ReadLine().ToLower();
+                                        isNumber = int.TryParse(answer, out parsedAnswer);
+                                    }
+                                else {
+                                        Console.WriteLine("Wrong! That number is too low!");
+                                        Console.Write($"{question} Guess ({i + 2}) of (4): ");
+                                        answer = Console.ReadLine().ToLower();
+                                        isNumber = int.TryParse(answer, out parsedAnswer);
+                                }
                             }
                         }    
                     }
